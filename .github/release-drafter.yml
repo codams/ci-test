@@ -1,3 +1,13 @@
+autolabeler:
+  - label: "chore"
+    branch:
+      - '/chore{0,1}\/.+/'
+  - label: "patch"
+    branch:
+      - '/fix\/.+/'
+  - label: "minor"
+    branch:
+      - '/feat\/.+/'
 name-template: "v$RESOLVED_VERSION 🌈"
 tag-template: "v$RESOLVED_VERSION"
 categories:
@@ -27,16 +37,7 @@ version-resolver:
     labels:
       - "patch"
   default: patch
-autolabeler:
-  - label: "chore"
-    branch:
-      - '/chore{0,1}\/.+/'
-  - label: "patch"
-    branch:
-      - '/fix\/.+/'
-  - label: "minor"
-    branch:
-      - '/feat\/.+/'
+
 template: |
   ## Changes
   $CHANGES
