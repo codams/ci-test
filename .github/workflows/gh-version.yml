@@ -1,6 +1,6 @@
 name: GitHub Actions Version
 on:
-  push:
+  create:
     tags:
       - v*
 jobs:
