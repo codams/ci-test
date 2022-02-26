@@ -29,19 +29,18 @@ version-resolver:
   default: patch
 autolabeler:
   - label: "chore"
-    files:
-      - "*.md"
     branch:
-      - '/docs\/.+/'
-      - '/refactor\/.+/'
-  - label: "bug"
+      - 'docs\/.+/'
+      - 'refactor\/.+/'
+      - 'chore\/.+/'
+  - label: "patch"
     branch:
-      - '/fix\/.+/'
+      - 'fix\/.+/'
     title:
       - "/fix/i"
-  - label: "enhancement"
+  - label: "minor"
     branch:
-      - '/feature\/.+/'
+      - 'feat\/.+/'
 template: |
   ## Changes
   $CHANGES
