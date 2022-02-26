@@ -17,7 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: ridedott/release-me-action@master
         with:
-          release-branches: '[{"name":"main","prerelease":"main"}]'
+          release-branches: '[{"name":"main","prerelease":"main"}, {"name":"master"}]'
           node-module: true
       - name: Setup Node.js
         uses: actions/setup-node@v1
