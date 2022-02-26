@@ -30,17 +30,17 @@ version-resolver:
 autolabeler:
   - label: "chore"
     branch:
-      - '/docs\/.+/'
-      - '/refactor\/.+/'
-      - '/chore\/.+/'
+      - 'docs\/.+/'
+      - 'refactor\/.+/'
+      - 'chore\/.+/'
   - label: "patch"
     branch:
-      - '/fix\/.+/'
+      - 'fix\/.+/'
     title:
       - "/fix/i"
   - label: "minor"
     branch:
-      - '/feat\/.+/'
+      - 'feat\/.+/'
 template: |
   ## Changes
   $CHANGES
