@@ -36,8 +36,6 @@ autolabeler:
   - label: "patch"
     branch:
       - '/fix\/.+/'
-    title:
-      - "/fix/i"
   - label: "minor"
     branch:
       - '/feat\/.+/'
