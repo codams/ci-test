@@ -33,14 +33,18 @@ autolabeler:
       - 'docs\/.+/'
       - 'refactor\/.+/'
       - 'chore\/.+/'
+    title:
+      - 'chore: \w*'
   - label: "patch"
     branch:
       - 'fix\/.+/'
     title:
-      - "/fix/i"
+      - 'fix: \w*'
   - label: "minor"
     branch:
       - 'feat\/.+/'
+    title:
+      - 'feat: \w*'
 template: |
   ## Changes
   $CHANGES
