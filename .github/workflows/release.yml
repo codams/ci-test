@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Chekout branch
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ridedott/release-me-action@master
+        with:
+          release-branches: '[{"name":"main","prerelease":"main"}]'
+          node-module: true
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          registry-url: "https://npm.pkg.github.com"
