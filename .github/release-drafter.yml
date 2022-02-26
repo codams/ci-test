@@ -40,7 +40,7 @@ autolabeler:
       - "/fix/i"
   - label: "minor"
     branch:
-      - '/feature\/.+/'
+      - '/feat\/.+/'
 template: |
   ## Changes
   $CHANGES
