@@ -31,12 +31,18 @@ autolabeler:
   - label: "chore"
     branch:
       - '/chore{0,1}\/.+/'
+      - '/refactor{0,1}\/.+/'
+      - '/ci{0,1}\/.+/'
   - label: "patch"
     branch:
       - '/fix\/.+/'
   - label: "minor"
     branch:
       - '/feat\/.+/'
+  - label: "major"
+    body:
+      - "BREAKING CHANGE"
+
 template: |
   ## Changes
   $CHANGES
