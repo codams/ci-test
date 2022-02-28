@@ -2,16 +2,12 @@ name: GitHub Actions Version
 on:
   create:
     tags:
-      - v*
+      - "v*"
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - name: "change version"
-        uses: reedyuk/npm-version@1.1.1
-        with:
-          version: "1.0.1"
-          package: "subproject-directory/"
-          git-tag-version: "true"
+      - run: echo Hello ${{ inputs.name }}. We juste got ${GITHUB_REF##*/}
+        shell: bash
