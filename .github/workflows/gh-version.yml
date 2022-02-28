@@ -1,8 +1,7 @@
 name: GitHub Actions Version
 on:
-  create:
-    tags:
-      - "v*"
+  release:
+    types: [published]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
