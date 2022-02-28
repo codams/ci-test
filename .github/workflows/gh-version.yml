@@ -27,6 +27,6 @@ jobs:
       - name: version and publish
         run: |
           git add .
-          git commit -m "ci: update package.json to ${{GITHUB_REF##*/}}"
+          git commit -m "ci: update package.json to ${GITHUB_REF##*/}"
           git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           git push gh-origin HEAD:main --tags
