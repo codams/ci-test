@@ -21,7 +21,7 @@ jobs:
       - name: npm install
         run: npm i
       - name: npm version
-        run: npm version ${GITHUB_REF##*/}
+        run: npm --no-git-tag-version --allow-same-version version ${GITHUB_REF##*/}
       - name: version and publish
         run: |
           git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
