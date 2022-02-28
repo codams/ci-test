@@ -1,21 +1,28 @@
-name: GitHub Actions Version
+name: Package.json verison update
 on:
   release:
     types: [published]
 jobs:
-  Explore-GitHub-Actions:
+  update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
       - run: echo Hello ${{ inputs.name }}. We juste got ${GITHUB_REF##*/}
         shell: bash
-      - name: Extract tag name
-        id: tag
-        uses: actions/github-script@0.2.0
+      - name: Install Node.js
+        uses: actions/setup-node@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            return context.payload.ref.replace(/\/refs\/tags\//, '');
-      - name: Echo
-        run: echo ${{ steps.tag.outputs.result }}
+          node-version: 16
+      - name: version and publish
+        run: |
+          git config user.name $GITHUB_ACTOR
+          git config user.email gh-actions-${GITHUB_ACTOR}@github.com
+      - name: npm install
+        run: npm i
+      - name: npm version
+        run: npm version ${GITHUB_REF##*/}
+      - name: version and publish
+        run: |
+          git remote add gh-origin https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          git push gh-origin HEAD:main --tags
